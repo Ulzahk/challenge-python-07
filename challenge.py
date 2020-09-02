@@ -79,8 +79,8 @@ def run():
     all_Platzi_workers =  filter (lambda person: person['organization'] == 'Platzi', DATA)
     # Using filter, generate a list with all people over 18 years old
     adults =  filter (lambda person: person['age'] > 18, DATA)
-    # Using map, generate a new list of people with a key 'homeless' with True or False values, if 'organization' have something or not
-    workers =  list(map(lambda person: person.update({'homeless': (True if person['organization'] else False)}) or {'name': person['name'], 'organization': person['organization'],'homeless': person['homeless']}, DATA))
+    # Using map, generate a new list of people with a key 'homeless' with False or True values, if 'organization' have something or not
+    workers =  list(map(lambda person: person.update({'homeless': (False if person['organization'] else True)}) or {'name': person['name'], 'organization': person['organization'],'homeless': person['homeless']}, DATA))
     # Using map, generate a new list of people with a key 'old' with True or False values, if 'age' is greater than 30 or not
     old_people =  list(map(lambda person : person.update({'old': (True if person['age'] > 30 else False)}) or {'name': person['name'], 'age' : person['age'], 'old': person['old']}, DATA))
 
